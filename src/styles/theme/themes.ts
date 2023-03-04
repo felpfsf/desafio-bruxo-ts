@@ -35,8 +35,10 @@ const colors: TColors = {
   Hufflepuff: "#ECB939",
   HufflepuffAccent: "#000000",
   default: "#7f7f7f",
-  paragraph: "#fff",
-  background: "#242633",
+  paragraph: "#F8F8F8 ",
+  background: "#1C1D1F",
+  navbarBg: "#B4B4B4",
+  footerBg:'#333333 '
 };
 
 const fontSizes: TFontSizes = {

@@ -32,6 +32,8 @@ export type TColors = {
   default: string;
   paragraph: string;
   background: string;
+  navbarBg: string;
+  footerBg: string;
 };
 
 export type TFontSizes = {
