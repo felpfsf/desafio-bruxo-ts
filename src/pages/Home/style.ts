@@ -11,3 +11,11 @@ export const Container = styled.main`
   align-items: center;
   justify-content: center;
 `;
+
+export const CharacterList = styled.div`
+  width: 100%;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+`;
