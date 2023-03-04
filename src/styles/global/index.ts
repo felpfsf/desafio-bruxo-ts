@@ -13,6 +13,6 @@ body {
   color: ${({ theme }: ITheme) => theme.text};
   font-size: ${({ theme }: ITheme) => theme.normal};
   width:100%;
-  background-color: ${({ theme }: ITheme) => theme.background}
+  background-color: ${({ theme }: ITheme) => theme.background};
 }
 `;
