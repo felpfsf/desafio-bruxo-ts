@@ -25,7 +25,7 @@ const globalBreakpoints: TBreakpoints = {
   devices,
 };
 
-const colors: TColors = {
+const houseColors = {
   Gryffindor: "#740001",
   GryffindorAccent: "#D3A625",
   Slytherin: "#1A472A",
@@ -35,10 +35,18 @@ const colors: TColors = {
   Hufflepuff: "#ECB939",
   HufflepuffAccent: "#000000",
   default: "#7f7f7f",
+};
+
+const themeColors = {
   paragraph: "#F8F8F8 ",
   background: "#1C1D1F",
   navbarBg: "#B4B4B4",
-  footerBg:'#333333 '
+  footerBg: "#333333 ",
+};
+
+const colors: TColors = {
+  houseColors,
+  themeColors,
 };
 
 const fontSizes: TFontSizes = {
@@ -53,7 +61,7 @@ export const theme: TThemeProps = {
   ...colors,
   ...fontSizes,
 
-  text: colors.paragraph,
+  text: colors.themeColors.paragraph,
   fontSize: fontSizes.normal,
-  background: colors.background,
+  background: colors.themeColors.background,
 };

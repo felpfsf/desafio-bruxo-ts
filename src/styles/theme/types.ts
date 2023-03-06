@@ -1,47 +1,19 @@
 export type TBreakpoints = {
-  breakpoints: {
-    mobileS: string;
-    mobileM: string;
-    mobileL: string;
-    tablet: string;
-    laptop: string;
-    desktop: string;
-    desktopL: string;
-  };
-
-  devices: {
-    mobileS: string;
-    mobileM: string;
-    mobileL: string;
-    tablet: string;
-    laptop: string;
-    desktop: string;
-    desktopL: string;
-  };
+  breakpoints: Record<string, string>;
+  devices: Record<string, string>;
 };
 
 export type TColors = {
-  Gryffindor: string;
-  GryffindorAccent: string;
-  Slytherin: string;
-  SlytherinAccent: string;
-  Ravenclaw: string;
-  RavenclawAccent: string;
-  Hufflepuff: string;
-  HufflepuffAccent: string;
-  default: string;
-  paragraph: string;
-  background: string;
-  navbarBg: string;
-  footerBg: string;
+  houseColors: Record<string, string>;
+  themeColors: Record<string, string>;
 };
 
-export type TFontSizes = {
+export interface TFontSizes {
   small: string;
   normal: string;
   large: string;
   xlarge: string;
-};
+}
 
 export type TCustomThemeProps = {
   text: string;
