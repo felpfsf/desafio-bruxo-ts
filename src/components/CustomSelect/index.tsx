@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { RxCaretDown, RxCaretUp } from "react-icons/rx";
 import {
   DropdownBox,
@@ -6,14 +6,25 @@ import {
   SelectButtonLabel,
   SelectContainer,
 } from "./style";
-export const HOUSE_OPTIONS = [
-  { id: 1, value: "all", label: "Todas as casas" },
-  { id: 2, value: "Gryffindor", label: "Gryffindor" },
-  { id: 3, value: "Slytherin", label: "Slytherin" },
-  { id: 4, value: "Ravenclaw", label: "Ravenclaw" },
-  { id: 5, value: "Hufflepuff", label: "Hufflepuff" },
-];
-export const CustomSelect = () => {
+
+interface OptionsProps {
+  id: number;
+  value: string;
+  label: string;
+}
+
+interface CustomSelectProps {
+  options: OptionsProps[];
+  currentValue: string;
+  handleChangeValue: string;
+  id: string;
+}
+export const CustomSelect = ({
+  currentValue,
+  handleChangeValue,
+  id,
+  options,
+}: CustomSelectProps) => {
   const [open, setOpen] = useState(false);
   const [changeValue, setChangeValue] = useState<string>("");
   const handleOpen = () => {
@@ -24,14 +35,36 @@ export const CustomSelect = () => {
     setChangeValue(value);
     setOpen(false);
   };
+  useEffect(() => {
+    const handleOutsideClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (open && !target.closest(`#${id}`)) {
+        handleOpen();
+      }
+    };
+
+    document.body.addEventListener("click", handleOutsideClick);
+    return () => {
+      document.body.removeEventListener("click", handleOutsideClick);
+    };
+  }, [open]);
+
   return (
-    <SelectContainer>
+    <SelectContainer id={id}>
       <SelectButtonLabel onClick={handleOpen}>
-        {changeValue === "" ? "Casa" : <span>{changeValue}</span>}{" "}
+        {changeValue === "" ? (
+          id.includes("house") ? (
+            "Casa"
+          ) : (
+            "Ancestralidade"
+          )
+        ) : (
+          <span>{changeValue}</span>
+        )}{" "}
         {!open ? <RxCaretUp size={18} /> : <RxCaretDown size={18} />}
       </SelectButtonLabel>
       <DropdownBox isVisible={open}>
-        {HOUSE_OPTIONS.map((option) => (
+        {options.map((option) => (
           <DropdownItem
             key={`${option.id}_${option.value}`}
             onClick={() => handleChange(option.value, option.label)}
