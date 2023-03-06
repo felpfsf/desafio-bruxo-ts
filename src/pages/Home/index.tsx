@@ -1,4 +1,5 @@
 import { CharacterCard } from "../../components/CharacterCard";
+import { CustomSelect } from "../../components/CustomSelect";
 import { Loading } from "../../components/Loading";
 import { NotFound } from "../../components/NotFound";
 import { CharacterList, Container } from "./style";
@@ -13,7 +14,8 @@ export const Home = () => {
         <CharacterCard />
         <CharacterCard /> */}
         {/* <NotFound /> */}
-        <Loading />
+        {/* <Loading /> */}
+        {/* <CustomSelect /> */}
       </CharacterList>
     </Container>
   );
