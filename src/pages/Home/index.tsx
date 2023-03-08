@@ -58,7 +58,7 @@ export const Home = () => {
       </CharacterList>
       <button
         onClick={handleShowMore}
-        disabled={filteredCharacters.length ? true : false}
+        disabled={filteredCharacters.length ? false : true}
       >
         Exibir mais
       </button>
