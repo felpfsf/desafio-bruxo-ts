@@ -20,14 +20,10 @@ interface CustomSelectProps {
   handleChangeValue: (value: string) => void;
   id: string;
 }
-export const CustomSelect = ({
-  currentValue,
-  handleChangeValue,
-  id,
-  options,
-}: CustomSelectProps) => {
+export const CustomSelect = ({handleChangeValue,id,options,}: CustomSelectProps) => {
   const { filters, setFilters } = useAppContext();
   const [open, setOpen] = useState(false);
+
   const [changeValue, setChangeValue] = useState<string>(() => {
     switch (id) {
       case "house":
@@ -38,14 +34,17 @@ export const CustomSelect = ({
         return "";
     }
   });
+
   const handleOpen = () => {
     setOpen((prev) => !prev);
   };
+
   const handleChange = (value: string, label: string) => {
     setChangeValue(label);
     handleChangeValue(value);
     setOpen(false);
   };
+  
   useEffect(() => {
     const handleOutsideClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
