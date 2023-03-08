@@ -6,13 +6,16 @@ export type TBreakpoints = {
 export type TColors = {
   houseColors: Record<string, string>;
   themeColors: Record<string, string>;
+  ancestryBadgeColors: Record<string, string>;
 };
 
 export interface TFontSizes {
+  xsmall: string;
   small: string;
   normal: string;
   large: string;
-  xlarge: string;
+  xl: string;
+  xxl: string;
 }
 
 export type TCustomThemeProps = {

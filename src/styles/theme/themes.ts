@@ -25,6 +25,15 @@ const globalBreakpoints: TBreakpoints = {
   devices,
 };
 
+const ancestryBadgeColors = {
+  Pureblood: "#7b1e1e", //(deep red)
+  Halfblood: "#e6b800", //(golden yellow)
+  Muggleborn: "#c5c5c5", //(light grey)
+  Muggle: "#3f3f3f", //(dark grey)
+  Squib: "#c1865a", //(warm brown)
+  Veela: "#f2c6e0", //(light pink)
+};
+
 const houseColors = {
   Gryffindor: "#740001",
   GryffindorAccent: "#D3A625",
@@ -45,15 +54,18 @@ const themeColors = {
 };
 
 const colors: TColors = {
+  ancestryBadgeColors,
   houseColors,
   themeColors,
 };
 
 const fontSizes: TFontSizes = {
-  small: "0.75rem",
+  xsmall: "0.75rem",
+  small: ".875rem",
   normal: "1rem",
-  large: "1.5rem",
-  xlarge: "2rem",
+  large: "1.125rem",
+  xl: "1.5rem",
+  xxl: "2rem",
 };
 
 export const theme: TThemeProps = {
