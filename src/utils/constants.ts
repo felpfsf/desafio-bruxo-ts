@@ -5,7 +5,7 @@ interface OptionsProps {
 }
 
 export const HOUSE_OPTIONS: OptionsProps[] = [
-  { id: 1, value: "all", label: "Todas as casas" },
+  { id: 1, value: "all", label: "Todas" },
   { id: 2, value: "Gryffindor", label: "Gryffindor" },
   { id: 3, value: "Slytherin", label: "Slytherin" },
   { id: 4, value: "Ravenclaw", label: "Ravenclaw" },
