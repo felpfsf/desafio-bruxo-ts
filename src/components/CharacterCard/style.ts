@@ -5,7 +5,7 @@ export const Box = styled.div`
   width: 100%;
   min-height: 7.5rem;
   margin: 8px;
-  padding: 6px 8px;
+  padding: 8px;
   border: 1px solid red;
   border-radius: 12px;
   box-shadow: 2px 2px 10px #333;
@@ -16,7 +16,8 @@ export const Box = styled.div`
 `;
 
 export const Avatar = styled.div`
-  width: 25%;
+  width: 96px;
+  height: 96px;
   border-radius: 50%;
   border: 4px solid;
   overflow: hidden;

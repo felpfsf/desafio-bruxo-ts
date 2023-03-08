@@ -20,6 +20,9 @@ export const Home = () => {
     CharacterProps[]
   >([]);
   const [charactersToShow, setCharactersToShow] = useState<number>(10);
+  const handleShowMore = () => {
+    setCharactersToShow((prev) => prev + 10);
+  };
 
   useEffect(() => {
     if (characters) {
@@ -49,8 +52,16 @@ export const Home = () => {
         {filteredCharacters.length &&
           filteredCharacters
             .slice(0, charactersToShow)
-            .map((character) => <CharacterCard key={character.id} />)}
+            .map((character) => (
+              <CharacterCard key={character.id} {...character} />
+            ))}
       </CharacterList>
+      <button
+        onClick={handleShowMore}
+        disabled={filteredCharacters.length ? true : false}
+      >
+        Exibir mais
+      </button>
     </Container>
   );
 };

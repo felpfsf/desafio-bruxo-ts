@@ -1,3 +1,4 @@
+import { CharacterProps } from "../../types";
 import {
   Avatar,
   Box,
@@ -8,35 +9,43 @@ import {
   Content,
 } from "./style";
 
-export const CharacterCard = () => {
+export const CharacterCard = ({
+  name,
+  ancestry,
+  alive,
+  wand,
+  house,
+  image,
+}: CharacterProps) => {
   return (
     <Box>
       <Avatar>
         <img
-          src='https://ik.imagekit.io/hpapi/harry.jpg'
-          alt='Foto de ${name}'
+          src={image ? image : "/images/wizard.png"}
+          alt={`Foto de ${name}`}
         />
       </Avatar>
       <Content>
         <CharInfoBox>
-          <CharName>Harry Potter</CharName>
-          <CharHouse>Gryffindor</CharHouse>
+          <CharName>{name}</CharName>
+          <CharHouse>{house}</CharHouse>
           <CharAncestry>
-            <em>half-blood</em>
+            <em>{ancestry ? ancestry : "Ancestralidade desconhecida"}</em>
           </CharAncestry>
         </CharInfoBox>
         <div>
           Varinha
           <ul>
             <li>
-              Madeira: <span>Holly</span>
+              Madeira: <span>{wand.wood ? wand.wood : "Não consta"}</span>
             </li>
             <li>
-              Núcleo: <span>Phoenix Feather</span>
+              Núcleo: <span>{wand.core ? wand.core : "Não consta"}</span>
             </li>
             {/* Criar uma função que converte para centímetros */}
             <li>
-              Comprimento: <span>27,94 cm</span>
+              Comprimento:{" "}
+              <span>{wand.length ? wand.length : "Não consta"}</span>
             </li>
           </ul>
         </div>
