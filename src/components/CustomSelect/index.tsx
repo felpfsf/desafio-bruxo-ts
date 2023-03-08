@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { RxCaretDown, RxCaretUp } from "react-icons/rx";
+import { useAppContext } from "../../hooks/useDataStore";
 import {
   DropdownBox,
   DropdownItem,
@@ -16,7 +17,7 @@ interface OptionsProps {
 interface CustomSelectProps {
   options: OptionsProps[];
   currentValue: string;
-  handleChangeValue: string;
+  handleChangeValue: (value: string) => void;
   id: string;
 }
 export const CustomSelect = ({
@@ -25,14 +26,24 @@ export const CustomSelect = ({
   id,
   options,
 }: CustomSelectProps) => {
+  const { filters, setFilters } = useAppContext();
   const [open, setOpen] = useState(false);
-  const [changeValue, setChangeValue] = useState<string>("");
+  const [changeValue, setChangeValue] = useState<string>(() => {
+    switch (id) {
+      case "house":
+        return filters.house || "";
+      case "ancestry":
+        return filters.ancestry || "";
+      default:
+        return "";
+    }
+  });
   const handleOpen = () => {
     setOpen((prev) => !prev);
   };
   const handleChange = (value: string, label: string) => {
-    console.log(value, label);
-    setChangeValue(value);
+    setChangeValue(label);
+    handleChangeValue(value);
     setOpen(false);
   };
   useEffect(() => {
