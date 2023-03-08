@@ -5,6 +5,7 @@ import { Home } from "./pages/Home";
 import { GlobalStyles } from "./styles/global";
 import { theme } from "./styles/theme";
 import styled from "styled-components";
+import { AppProvider } from "./context/DataContext";
 
 const Container = styled.div`
   display: flex;
@@ -16,11 +17,13 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <Container>
-        <Navbar />
-        <Home />
-        <Footer />
-      </Container>
+      <AppProvider>
+        <Container>
+          <Navbar />
+          <Home />
+          <Footer />
+        </Container>
+      </AppProvider>
     </ThemeProvider>
   );
 }
