@@ -1,13 +1,13 @@
-import { NavbarContainer } from "./style";
+import { Container } from "./style";
 export const Footer = () => {
   return (
-    <NavbarContainer>
+    <Container>
       <div>
         <h1>Desafio Bruxo</h1>
         <h3>Um compêndio de seus bruxos favoritos</h3>
         <p>
           <a
-            href='https://github.com/felpfsf/DesafioBruxo'
+            href='https://github.com/felpfsf/desafio-bruxo-ts'
             target='_blank'
             rel='noopener noreferrer'
           >
@@ -24,6 +24,6 @@ export const Footer = () => {
           </a>
         </p>
       </div>
-    </NavbarContainer>
+    </Container>
   );
 };
