@@ -4,27 +4,29 @@ import {
   Avatar,
   Box,
   CharName,
-  CharHouse,
   CharInfoBox,
   Content,
   CharAncestryBadge,
   CharWandInfo,
+  Corner,
+  CharHouseBadge,
 } from "./style";
 
-export const CharacterCard = ({
-  name,
-  ancestry,
-  alive,
-  wand,
-  house,
-  image,
-}: CharacterProps) => {
+export const CharacterCard = (props: CharacterProps) => {
+  const { name, ancestry, alive, wand, house, image } = props;
+
   const capitalize = (str: string) => {
     return str.replace(/\b\w/g, (char) => char.toUpperCase());
   };
+
   const core = wand.core && capitalize(wand.core);
+
   return (
     <Box house={house}>
+      <Corner>
+        <img src={`/images/${house.toLowerCase()}_top_left.webp`} alt='' />
+        <img src={`/images/${house.toLowerCase()}_bottom_right.webp`} alt='' />
+      </Corner>
       <Avatar house={house}>
         <img
           src={image ? image : "/images/wizard.png"}
@@ -34,7 +36,9 @@ export const CharacterCard = ({
       <Content>
         <CharInfoBox>
           <CharName>{name}</CharName>
-          <CharHouse>{house}</CharHouse>
+          <CharHouseBadge house={house}>
+            <span>{house}</span>
+          </CharHouseBadge>
           <CharAncestryBadge>
             <em>{ancestry ? ancestry : "Ancestralidade desconhecida"}</em>
           </CharAncestryBadge>
