@@ -64,11 +64,13 @@ export const Avatar = styled.div<CharacterCardProps>`
   & img {
     width: 100%;
     height: 100%;
-    object-fit: fill;
+    object-fit: cover;
   }
   @media ${({ theme }) => theme.devices.tablet} {
-    width: 210px;
-    height: 280px;
+    /* width: 210px;
+    height: 280px; */
+    width: 50%;
+    height: 70%;
   }
 `;
 

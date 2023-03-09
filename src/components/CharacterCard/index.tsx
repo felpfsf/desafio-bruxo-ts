@@ -24,10 +24,15 @@ export const CharacterCard = (props: CharacterProps) => {
 
   return (
     <Box house={house}>
-      <Corner>
-        <img src={`/images/${house.toLowerCase()}_top_left.webp`} alt='' />
-        <img src={`/images/${house.toLowerCase()}_bottom_right.webp`} alt='' />
-      </Corner>
+      {house && (
+        <Corner>
+          <img src={`/images/${house.toLowerCase()}_top_left.webp`} alt='' />
+          <img
+            src={`/images/${house.toLowerCase()}_bottom_right.webp`}
+            alt=''
+          />
+        </Corner>
+      )}
       <Avatar house={house}>
         <img
           src={image ? image : "/images/wizard.png"}
@@ -44,7 +49,7 @@ export const CharacterCard = (props: CharacterProps) => {
             <em>{ancestry ? ancestry : "Ancestralidade desconhecida"}</em>
           </CharAncestryBadge>
         </CharInfoBox>
-        <Divider src="/images/rule.png" alt="" />
+        <Divider src='/images/rule.png' alt='' />
         <CharWandInfo>
           <p>Varinha</p>
           <ul>
