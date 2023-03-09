@@ -47,8 +47,8 @@ const houseColors = {
   SlytherinAccent: "#5D5D5D",
   Ravenclaw: "#0E1A40",
   RavenclawAccent: "#946B2D",
-  Hufflepuff: "#ECB939",
-  HufflepuffAccent: "#000000",
+  Hufflepuff: "#fcc53c",
+  HufflepuffAccent: "#6e5e52",
   default: "#7f7f7f",
 };
 
