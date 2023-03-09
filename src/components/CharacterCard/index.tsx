@@ -10,6 +10,7 @@ import {
   CharWandInfo,
   Corner,
   CharHouseBadge,
+  Divider,
 } from "./style";
 
 export const CharacterCard = (props: CharacterProps) => {
@@ -37,14 +38,15 @@ export const CharacterCard = (props: CharacterProps) => {
         <CharInfoBox>
           <CharName>{name}</CharName>
           <CharHouseBadge house={house}>
-            <span>{house}</span>
+            <span>{house ? house : "Não possui casa"}</span>
           </CharHouseBadge>
           <CharAncestryBadge>
             <em>{ancestry ? ancestry : "Ancestralidade desconhecida"}</em>
           </CharAncestryBadge>
         </CharInfoBox>
+        <Divider src="/images/rule.png" alt="" />
         <CharWandInfo>
-          Varinha
+          <p>Varinha</p>
           <ul>
             <li>
               Madeira: <span>{wand.wood ? wand.wood : "Não consta"}</span>

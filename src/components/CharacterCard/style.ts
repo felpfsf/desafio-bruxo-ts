@@ -79,6 +79,9 @@ export const Content = styled.article`
   flex-direction: column;
   justify-content: space-around;
   gap: 10px;
+  @media ${({ theme }) => theme.devices.tablet} {
+    align-items: center;
+  }
 `;
 
 export const CharInfoBox = styled.div`
@@ -91,8 +94,9 @@ export const CharInfoBox = styled.div`
 `;
 
 export const CharName = styled.h1`
+  font-family: ${({ theme }) => theme.title};
   font-size: ${({ theme }) => theme.large};
-  font-weight: 600;
+  font-weight: 700;
   @media ${({ theme }) => theme.devices.tablet} {
     font-size: ${({ theme }) => theme.xl};
   }
@@ -102,10 +106,11 @@ export const CharHouseBadge = styled.div<CharacterCardProps>`
   margin-top: 4px;
   padding: 6px 12px;
   background-color: ${({ theme, house }) =>
-    theme.houseColors[`${house}Accent`]};
+    theme.houseColors[`${house}Accent`] || theme.houseColors.default};
   border-radius: 24px;
   box-shadow: 2px 2px 10px #333;
   & span {
+    font-family: ${({ theme }) => theme.badges};
     font-size: ${({ theme }) => theme.normal};
     font-weight: 600;
   }
@@ -120,12 +125,27 @@ export const CharAncestryBadge = styled.div`
   box-shadow: 2px 2px 10px #333;
   & em {
     font-size: ${({ theme }) => theme.xsmall};
+    font-weight: 300;
     text-transform: capitalize;
     font-style: italic;
   }
 `;
 
+export const Divider = styled.img`
+  width: 100%;
+  height: 18px;
+  align-self: center;
+  @media ${({ theme }) => theme.devices.tablet} {
+    width: 50%;
+    height: 100%;
+  }
+`;
+
 export const CharWandInfo = styled.div`
+  & p {
+    font-family: ${({ theme }) => theme.subTitle};
+    text-align: center;
+  }
   @media ${({ theme }) => theme.devices.tablet} {
     display: flex;
     align-items: center;
