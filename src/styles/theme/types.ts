@@ -9,14 +9,14 @@ export type TColors = {
   ancestryBadgeColors: Record<string, string>;
 };
 
-export interface TFontSizes {
+export type TFontSizes = {
   xsmall: string;
   small: string;
   normal: string;
   large: string;
   xl: string;
   xxl: string;
-}
+};
 
 export type TCustomThemeProps = {
   text: string;
@@ -24,7 +24,15 @@ export type TCustomThemeProps = {
   background: string;
 };
 
+export type TFontFamilies = {
+  title: string;
+  subTitle: string;
+  paragraph: string;
+  badges: string;
+};
+
 export type TThemeProps = TBreakpoints &
   TColors &
   TFontSizes &
+  TFontFamilies &
   TCustomThemeProps;

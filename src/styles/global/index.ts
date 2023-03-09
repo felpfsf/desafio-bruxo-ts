@@ -9,7 +9,7 @@ interface ITheme {
 export const GlobalStyles = createGlobalStyle`
 ${reset}
 body {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: ${({ theme }: ITheme) => theme.paragraph};
   color: ${({ theme }: ITheme) => theme.text};
   font-size: ${({ theme }: ITheme) => theme.normal};
   width:100%;

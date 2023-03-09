@@ -1,4 +1,10 @@
-import { TBreakpoints, TColors, TFontSizes, TThemeProps } from "./types";
+import {
+  TBreakpoints,
+  TColors,
+  TFontFamilies,
+  TFontSizes,
+  TThemeProps,
+} from "./types";
 
 const breakpoints = {
   mobileS: "320px",
@@ -68,10 +74,18 @@ const fontSizes: TFontSizes = {
   xxl: "2rem",
 };
 
+const fontFamilies: TFontFamilies = {
+  title: "'Montserrat', sans-serif",
+  subTitle: "'Rubik', sans-serif",
+  paragraph: "'Work Sans', sans-serif",
+  badges: "'Quicksand', sans-serif",
+};
+
 export const theme: TThemeProps = {
   ...globalBreakpoints,
   ...colors,
   ...fontSizes,
+  ...fontFamilies,
 
   text: colors.themeColors.paragraph,
   fontSize: fontSizes.normal,
