@@ -3,7 +3,7 @@ import { useAppContext } from "../../hooks/useDataStore";
 import { ANCESTRY_OPTIONS, HOUSE_OPTIONS } from "../../utils";
 import { CustomSelect } from "../CustomSelect";
 import { SearchName } from "../SearchName";
-import { NavbarContainer } from "./style";
+import { Logo, Container } from "./style";
 
 export const Navbar = () => {
   const { filters, setFilters } = useAppContext();
@@ -35,8 +35,11 @@ export const Navbar = () => {
   }, [searchTerm]);
 
   return (
-    <NavbarContainer>
-      <h1>Desafio Bruxo</h1>
+    <Container>
+      <Logo>
+        <img src='/images/hogwartslegacylogo.png' alt='' />
+        {/* <h1>Desafio Bruxo</h1> */}
+      </Logo>
       <nav>
         <CustomSelect
           options={HOUSE_OPTIONS}
@@ -60,6 +63,6 @@ export const Navbar = () => {
           handleSearch={(e) => setSearchTerm(e.target.value)}
         />
       </nav>
-    </NavbarContainer>
+    </Container>
   );
 };
