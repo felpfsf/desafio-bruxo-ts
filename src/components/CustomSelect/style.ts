@@ -10,7 +10,7 @@ export const SelectContainer = styled.div`
 `;
 
 export const SelectButtonLabel = styled.button`
-  width: 8rem;
+  width: 9rem;
   padding: 0.375rem 0.5rem;
   background: #fff;
   border-radius: 0.5rem;
