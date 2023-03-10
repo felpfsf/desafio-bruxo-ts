@@ -23,7 +23,7 @@ export const Box = styled.div<CharacterCardProps>`
   align-items: center;
   gap: 1rem;
   @media ${({ theme }) => theme.devices.tablet} {
-    width: 18.75rem;
+    width: 17rem;
     height: 25rem;
     padding-block: 0.5rem;
     flex-direction: column;
