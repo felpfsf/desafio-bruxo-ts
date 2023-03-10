@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.header`
   padding: 1.5rem;
-  background-color: ${({ theme }) => theme.themeColors.navbarBg};
+  /* background-color: ${({ theme }) => theme.themeColors.footerBg}; */
   display: flex;
   flex-direction: column;
   align-items: center;

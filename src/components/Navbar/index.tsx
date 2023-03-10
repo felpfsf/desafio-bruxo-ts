@@ -10,9 +10,6 @@ export const Navbar = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleChangeValue = (filterType: string, value: string) => {
-    // console.log("handleChangeValue called with:", filterType, value);
-    // console.log("Before:", filters);
-
     switch (filterType) {
       case "house":
         setFilters({ ...filters, house: value });
@@ -26,8 +23,6 @@ export const Navbar = () => {
       default:
         return;
     }
-
-    // console.log("After:", filters);
   };
 
   useEffect(() => {
@@ -37,8 +32,7 @@ export const Navbar = () => {
   return (
     <Container>
       <Logo>
-        <img src='/images/hogwartslegacylogo.png' alt='' />
-        {/* <h1>Desafio Bruxo</h1> */}
+        <img src='/images/logo-black_2.webp' alt='' />
       </Logo>
       <nav>
         <CustomSelect

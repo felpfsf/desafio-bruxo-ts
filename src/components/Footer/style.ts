@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.footer`
   padding: 1.5rem;
-  background-color: ${({ theme }) => theme.themeColors.footerBg};
+  /* background-color: ${({ theme }) => theme.themeColors.background}; */
   flex-shrink: 0;
   & div {
     max-width: 1740px;

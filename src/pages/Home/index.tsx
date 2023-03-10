@@ -44,11 +44,12 @@ export const Home = () => {
       setFilteredCharacters(filtered);
     }
   }, [filters, characters]);
-
+// console.log(filteredCharacters.length)
   return (
     <Container>
       <CharacterList>
         {status === "loading" && <Loading />}
+        {error && <NotFound />}
         {filteredCharacters.length &&
           filteredCharacters
             .slice(0, charactersToShow)
@@ -58,7 +59,7 @@ export const Home = () => {
       </CharacterList>
       <button
         onClick={handleShowMore}
-        disabled={filteredCharacters.length ? false : true}
+        disabled={charactersToShow >= filteredCharacters.length ? true : false}
       >
         Exibir mais
       </button>
