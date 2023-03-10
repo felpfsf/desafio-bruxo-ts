@@ -6,6 +6,7 @@ import { GlobalStyles } from "./styles/global";
 import { theme } from "./styles/theme";
 import styled from "styled-components";
 import { AppProvider } from "./context/DataContext";
+import { ScrollToTop } from "./components/ScrollToTopButton";
 
 const Container = styled.div`
   display: flex;
@@ -17,6 +18,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
+      <ScrollToTop />
       <AppProvider>
         <Container>
           <Navbar />
