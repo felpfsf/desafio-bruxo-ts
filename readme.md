@@ -19,7 +19,7 @@ yarn
 yarn dev
 ```
 
-A aplicação estará disponível em http://localhost:5173.
+A aplicação estará disponível em <http://localhost:5173>.
 
 ## Funcionamento
 
