@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { CharacterCard } from "../../components/CharacterCard";
 import { Loading } from "../../components/Loading";
 import { NotFound } from "../../components/NotFound";
-import { useAppContext } from "../../hooks/useDataStore";
+import { useFilterContext } from "../../hooks/useFilterContext";
 import { useFetchData } from "../../hooks/useFetch";
 import { CharacterProps } from "../../types";
 import { API_URL } from "../../utils/env";
@@ -10,7 +10,7 @@ import { CharacterList, Container, ShowMore } from "./style";
 
 export const Home = () => {
   const [charactersToShow, setCharactersToShow] = useState(10);
-  const { filters } = useAppContext();
+  const { filters } = useFilterContext();
   const { data: characters, status } = useFetchData<CharacterProps[]>(API_URL);
   const [filteredCharacters, setFilteredCharacters] = useState<
     CharacterProps[]

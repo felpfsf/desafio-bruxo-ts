@@ -6,21 +6,21 @@ interface Filters {
   name?: string;
 }
 
-export interface AppContextProps {
+export interface FilterContextProps {
   filters: Filters;
   setFilters: (filters: Filters) => void;
 }
 
-export const AppContext = createContext<AppContextProps>({
+export const FilterContext = createContext<FilterContextProps>({
   filters: {},
   setFilters: () => {},
 });
 
-export const AppProvider = ({ children }: { children: ReactNode }) => {
+export const FilterProvider = ({ children }: { children: ReactNode }) => {
   const [filters, setFilters] = useState<Filters>({});
   return (
-    <AppContext.Provider value={{ filters, setFilters }}>
+    <FilterContext.Provider value={{ filters, setFilters }}>
       {children}
-    </AppContext.Provider>
+    </FilterContext.Provider>
   );
 };

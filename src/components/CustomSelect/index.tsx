@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { RxCaretDown, RxCaretUp } from "react-icons/rx";
-import { useAppContext } from "../../hooks/useDataStore";
+import { useFilterContext } from "../../hooks/useFilterContext";
 import {
   DropdownBox,
   DropdownItem,
@@ -20,8 +20,12 @@ interface CustomSelectProps {
   handleChangeValue: (value: string) => void;
   id: string;
 }
-export const CustomSelect = ({handleChangeValue,id,options,}: CustomSelectProps) => {
-  const { filters, setFilters } = useAppContext();
+export const CustomSelect = ({
+  handleChangeValue,
+  id,
+  options,
+}: CustomSelectProps) => {
+  const { filters, setFilters } = useFilterContext();
   const [open, setOpen] = useState(false);
 
   const [changeValue, setChangeValue] = useState<string>(() => {
@@ -44,7 +48,7 @@ export const CustomSelect = ({handleChangeValue,id,options,}: CustomSelectProps)
     handleChangeValue(value);
     setOpen(false);
   };
-  
+
   useEffect(() => {
     const handleOutsideClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;

@@ -5,7 +5,7 @@ import { Home } from "./pages/Home";
 import { GlobalStyles } from "./styles/global";
 import { theme } from "./styles/theme";
 import styled from "styled-components";
-import { AppProvider } from "./context/DataContext";
+import { FilterProvider } from "./context/FilterContext";
 import { ScrollToTop } from "./components/ScrollToTopButton";
 
 const Container = styled.div`
@@ -19,13 +19,13 @@ function App() {
     <ThemeProvider theme={theme}>
       <GlobalStyles />
       <ScrollToTop />
-      <AppProvider>
+      <FilterProvider>
         <Container>
           <Navbar />
           <Home />
           <Footer />
         </Container>
-      </AppProvider>
+      </FilterProvider>
     </ThemeProvider>
   );
 }
