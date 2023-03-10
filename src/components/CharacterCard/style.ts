@@ -10,13 +10,14 @@ export const Box = styled.div<CharacterCardProps>`
   width: 100%;
   min-height: 7.5rem;
   margin: 8px;
-  padding: 8px;
+  padding: 8px 8px 0;
   border-radius: 12px;
   border: 2px solid;
   border-color: ${({ theme, house }) =>
     theme.houseColors[`${house}Accent`] || theme.houseColors.default};
   background: ${({ theme, house }) =>
-    theme.houseColors[house] || theme.houseColors.default};
+      theme.houseColors[house] || theme.houseColors.default}
+    linear-gradient(to top, #111 10%, transparent 90%);
   box-shadow: 2px 2px 10px #333;
   display: flex;
   flex-direction: row;
@@ -25,7 +26,7 @@ export const Box = styled.div<CharacterCardProps>`
   @media ${({ theme }) => theme.devices.tablet} {
     width: 17rem;
     height: 25rem;
-    padding-block: 0.5rem;
+    padding: 8px 0 0;
     flex-direction: column;
     justify-content: center;
   }
@@ -67,16 +68,14 @@ export const Avatar = styled.div<CharacterCardProps>`
     object-fit: cover;
   }
   @media ${({ theme }) => theme.devices.tablet} {
-    /* width: 210px;
-    height: 280px; */
-    width: 50%;
+    width: 60%;
     height: 70%;
   }
 `;
 
 export const Content = styled.article`
-  width: 100%;
   z-index: 1;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -120,14 +119,15 @@ export const CharHouseBadge = styled.div<CharacterCardProps>`
 
 export const CharAncestryBadge = styled.div`
   margin-top: 6px;
-  display: inline-block;
   padding: 2px 6px;
   border-radius: 12px;
   background-color: #c1865a; //#4d4d4d para animais
   box-shadow: 2px 2px 10px #333;
+  display: inline-block;
   & em {
     font-size: ${({ theme }) => theme.xsmall};
-    font-weight: 300;
+    color: #111;
+    font-weight: 400;
     text-transform: capitalize;
     font-style: italic;
   }
@@ -144,20 +144,36 @@ export const Divider = styled.img`
 `;
 
 export const CharWandInfo = styled.div`
+  padding-bottom: 8px;
   & p {
     font-family: ${({ theme }) => theme.subTitle};
     text-align: center;
+    font-weight: 700;
   }
   @media ${({ theme }) => theme.devices.tablet} {
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
     gap: 4px;
-    & ul {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
+  }
+`;
+
+export const WandInfoList = styled.ul`
+  padding-inline: 8px;
+  font-family: ${({ theme }) => theme.paragraph};
+  font-size: ${({ theme }) => theme.xsmall};
+  font-weight: 700;
+  text-transform: capitalize;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+`;
+
+export const WandInfoListItem = styled.li`
+  text-align: center;
+  & span {
+    font-weight: 400;
+    display: inline-block;
   }
 `;

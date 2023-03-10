@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { CharacterProps } from "../../types";
 import {
   Avatar,
@@ -11,16 +10,25 @@ import {
   Corner,
   CharHouseBadge,
   Divider,
+  WandInfoList,
+  WandInfoListItem,
 } from "./style";
 
 export const CharacterCard = (props: CharacterProps) => {
-  const { name, ancestry, alive, wand, house, image } = props;
+  const { name, ancestry, alive, wand, house, image, species, gender, wizard } =
+    props;
 
   const capitalize = (str: string) => {
     return str.replace(/\b\w/g, (char) => char.toUpperCase());
   };
 
   const core = wand.core && capitalize(wand.core);
+
+  const convertInchToCm = (length: number | null) => {
+    const BASE_VALUE = 2.54;
+    const lenghCm = length && length * BASE_VALUE;
+    return lenghCm?.toFixed(2);
+  };
 
   return (
     <Box house={house}>
@@ -35,13 +43,22 @@ export const CharacterCard = (props: CharacterProps) => {
       )}
       <Avatar house={house}>
         <img
-          src={image ? image : "/images/wizard.png"}
+          src={
+            image
+              ? image
+              : wizard
+              ? "/images/wizard.png"
+              : gender === "male"
+              ? "/images/generic_male.png"
+              : "/images/generic_female.png"
+          }
           alt={`Foto de ${name}`}
         />
       </Avatar>
       <Content>
         <CharInfoBox>
           <CharName>{name}</CharName>
+          {/* {species !== "human" && <h2>{species}</h2>} */}
           <CharHouseBadge house={house}>
             <span>{house ? house : "Não possui casa"}</span>
           </CharHouseBadge>
@@ -51,20 +68,38 @@ export const CharacterCard = (props: CharacterProps) => {
         </CharInfoBox>
         <Divider src='/images/rule.png' alt='' />
         <CharWandInfo>
-          <p>Varinha</p>
-          <ul>
-            <li>
-              Madeira: <span>{wand.wood ? wand.wood : "Não consta"}</span>
-            </li>
-            <li>
-              Núcleo: <span>{wand.core ? core : "Não consta"}</span>
-            </li>
-            {/* Criar uma função que converte para centímetros */}
-            <li>
-              Comprimento:{" "}
-              <span>{wand.length ? wand.length : "Não consta"}</span>
-            </li>
-          </ul>
+          {ancestry.toLowerCase() !== "muggle" ? (
+            <>
+              <p>Varinha</p>
+              <WandInfoList>
+                {wand.wood != "" || wand.core != "" || wand.length != null ? (
+                  <>
+                    <WandInfoListItem>
+                      Madeira:{" "}
+                      <span>{wand.wood ? wand.wood : "Não consta"}</span>
+                    </WandInfoListItem>
+                    <WandInfoListItem>
+                      Núcleo: <span>{wand.core ? core : "Não consta"}</span>
+                    </WandInfoListItem>
+                    <WandInfoListItem>
+                      Comprimento:{" "}
+                      <span>
+                        {wand.length
+                          ? convertInchToCm(wand.length) + "cm"
+                          : "Não consta"}
+                      </span>
+                    </WandInfoListItem>
+                  </>
+                ) : (
+                  <WandInfoListItem>
+                    "Não Possui dados da varinha"
+                  </WandInfoListItem>
+                )}
+              </WandInfoList>
+            </>
+          ) : (
+            <p>"Trouxas não possuem varinha"</p>
+          )}
         </CharWandInfo>
       </Content>
     </Box>
