@@ -6,16 +6,16 @@ export const Box = styled.div`
   flex-direction: column-reverse;
   align-items: center;
   gap: 1rem;
+  position: relative;
+  & h1 {
+    position: absolute;
+    top: 45%;
+    font-family: ${({ theme }) => theme.title};
+    font-size: ${({ theme }) => theme.large};
+    font-weight: 700;
+  }
   @media ${({ theme }) => theme.devices.tablet} {
     width: 50%;
-    position: relative;
-    & h1 {
-      position: absolute;
-      top: 45%;
-      font-family: ${({ theme }) => theme.title};
-      font-size: ${({ theme }) => theme.large};
-      font-weight: 700;
-    }
   }
 `;
 
