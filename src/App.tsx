@@ -3,7 +3,7 @@ import { Footer } from "./components/Footer";
 import { Navbar } from "./components/Navbar";
 import { Home } from "./pages/Home";
 import { GlobalStyles } from "./styles/global";
-import { theme } from "./styles/theme";
+import { defaultTheme } from "./styles/theme";
 import styled from "styled-components";
 import { FilterProvider } from "./context/FilterContext";
 import { ScrollToTop } from "./components/ScrollToTopButton";
@@ -16,7 +16,7 @@ const Container = styled.div`
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={defaultTheme}>
       <GlobalStyles />
       <ScrollToTop />
       <FilterProvider>
