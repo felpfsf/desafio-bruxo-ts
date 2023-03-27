@@ -1,17 +1,5 @@
 import styled from "styled-components";
 
-interface TColors {
-  Gryffindor: string;
-  GryffindorAccent: string;
-  Slytherin: string;
-  SlytherinAccent: string;
-  Ravenclaw: string;
-  RavenclawAccent: string;
-  Hufflepuff: string;
-  HufflepuffAccent: string;
-  default: string;
-}
-
 interface CharacterCardProps {
   house: string;
 }
