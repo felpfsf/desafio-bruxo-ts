@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const Container = styled.header`
   padding: 1.5rem;
-  /* background-color: ${({ theme }) => theme.themeColors.footerBg}; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,7 +17,7 @@ export const Container = styled.header`
 export const Logo = styled.div`
   /* width: 100%; */
   /* align-self: center; */
-  @media ${({ theme }) => theme.devices.tablet} {
+  @media ${({ theme }) => theme.breakpoints.tablet} {
     /* width: 25%; */
   }
   & img {

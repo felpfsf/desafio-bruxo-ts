@@ -10,11 +10,11 @@ export const Box = styled.div`
   & h1 {
     position: absolute;
     top: 45%;
-    font-family: ${({ theme }) => theme.title};
-    font-size: ${({ theme }) => theme.large};
+    font-family: ${({ theme }) => theme.fontFamilies.title};
+    font-size: ${({ theme }) => theme.fontSizes.large};
     font-weight: 700;
   }
-  @media ${({ theme }) => theme.devices.tablet} {
+  @media ${({ theme }) => theme.breakpoints.tablet} {
     width: 50%;
   }
 `;
@@ -26,7 +26,7 @@ export const ImageBox = styled.div`
     height: 100%;
     object-fit: cover;
   }
-  @media ${({ theme }) => theme.devices.tablet} {
+  @media ${({ theme }) => theme.breakpoints.tablet} {
     width: 25%;
   }
 `;

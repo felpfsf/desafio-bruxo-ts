@@ -21,9 +21,9 @@ export const CharacterList = styled.div`
 `;
 
 export const ShowMore = styled.button<{ isLastPage: boolean }>`
-  font-family: ${({ theme }) => theme.paragraph};
-  font-size: ${({ theme }) => theme.large};
-  color: ${({ theme }) => theme.themeColors.paragraph};
+  font-family: ${({ theme }) => theme.fontFamilies.paragraph};
+  font-size: ${({ theme }) => theme.fontSizes.large};
+  color: ${({ theme }) => theme.colors.themeColors.paragraph};
   text-decoration: underline;
   text-underline-offset: 8px;
   background-color: transparent;
@@ -34,6 +34,6 @@ export const ShowMore = styled.button<{ isLastPage: boolean }>`
   transition: all 0.3s ease-in-out;
   display: ${({ isLastPage }) => (isLastPage ? "none" : "flex")};
   &:hover {
-    color: ${({ theme }) => theme.houseColors.RavenclawAccent};
+    color: ${({ theme }) => theme.colors.houseColors.RavenclawAccent};
   }
 `;
