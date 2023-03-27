@@ -1,8 +1,8 @@
-// import original module declarations
 import "styled-components";
-import { TThemeProps } from "../styles/theme";
+import { defaultTheme } from "../styles/theme";
 
-// and extend them!
+type ThemeType = typeof defaultTheme;
+
 declare module "styled-components" {
-  export interface DefaultTheme extends TThemeProps {}
+  export interface DefaultTheme extends ThemeType {}
 }
