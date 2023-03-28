@@ -20,7 +20,7 @@ export const CharacterList = styled.div`
   justify-content: center;
 `;
 
-export const ShowMore = styled.button<{ isLastPage: boolean }>`
+export const ShowMore = styled.button<{ isLastPage: boolean | undefined }>`
   font-family: ${({ theme }) => theme.fontFamilies.paragraph};
   font-size: ${({ theme }) => theme.fontSizes.large};
   color: ${({ theme }) => theme.colors.themeColors.paragraph};

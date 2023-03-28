@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { RxCaretDown, RxCaretUp } from "react-icons/rx";
-import { useFilterContext } from "../../hooks/useFilterContext";
+import { useDataContext } from "../../hooks/useDataContext";
 import {
   DropdownBox,
   DropdownItem,
@@ -25,7 +25,7 @@ export const CustomSelect = ({
   id,
   options,
 }: CustomSelectProps) => {
-  const { filters, setFilters } = useFilterContext();
+  const { filters } = useDataContext();
   const [open, setOpen] = useState(false);
 
   const [changeValue, setChangeValue] = useState<string>(() => {
