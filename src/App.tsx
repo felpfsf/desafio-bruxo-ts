@@ -5,7 +5,6 @@ import { Home } from "./pages/Home";
 import { GlobalStyles } from "./styles/global";
 import { defaultTheme } from "./styles/theme";
 import styled from "styled-components";
-import { FilterProvider } from "./context/FilterContext";
 import { ScrollToTop } from "./components/ScrollToTopButton";
 import { DataContextProvider } from "./context/DataContext";
 
