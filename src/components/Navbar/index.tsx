@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { useFilterContext } from "../../hooks/useFilterContext";
+import { useDataContext } from "../../hooks/useDataContext";
 import { ANCESTRY_OPTIONS, HOUSE_OPTIONS } from "../../utils";
 import { CustomSelect } from "../CustomSelect";
 import { SearchName } from "../SearchName";
 import { Logo, Container } from "./style";
 
 export const Navbar = () => {
-  const { filters, setFilters } = useFilterContext();
+  const { filters, setFilters } = useDataContext();
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleChangeValue = (filterType: string, value: string) => {
