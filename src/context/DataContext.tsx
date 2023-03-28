@@ -1,14 +1,15 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
-import { Loading } from "../components/Loading";
 import { useFetchData } from "../hooks/useFetch";
 import { CharacterProps } from "../types";
-import { API_URL } from "../utils/env";
+import { API_URL } from "../utils/";
 
 interface Filters {
   ancestry?: string;
   house?: string;
   name?: string;
 }
+
+type Status = "loading" | "loaded" | "error";
 
 interface DataCtxProviderProps {
   children: ReactNode;
@@ -19,9 +20,16 @@ export interface DataContextType {
   filteredCharacters: CharacterProps[] | undefined;
   filters: Filters;
   setFilters: (filters: Filters) => void;
+  status: Status | undefined;
 }
 
-export const DataContext = createContext({} as DataContextType);
+export const DataContext = createContext({
+  characters: undefined,
+  filteredCharacters: undefined,
+  filters: {},
+  setFilters: () => {},
+  status: "loading",
+} as DataContextType);
 
 export const DataContextProvider = ({ children }: DataCtxProviderProps) => {
   const [filters, setFilters] = useState<Filters>({});
@@ -53,7 +61,7 @@ export const DataContextProvider = ({ children }: DataCtxProviderProps) => {
 
   return (
     <DataContext.Provider
-      value={{ characters, filteredCharacters, filters, setFilters }}
+      value={{ characters, filteredCharacters, filters, setFilters, status }}
     >
       {children}
     </DataContext.Provider>
