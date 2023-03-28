@@ -6,18 +6,18 @@ import { CharacterList, Container, ShowMore } from "./style";
 import { useDataContext } from "../../hooks/useDataContext";
 
 export const Home = () => {
-  const { filteredCharacters } = useDataContext();
+  const { filteredCharacters = [], status } = useDataContext();
   const [charactersToShow, setCharactersToShow] = useState(10);
+  const filteredCharactersLength = filteredCharacters.length;
+  const isLastPage = charactersToShow >= filteredCharactersLength;
+  if (status === "loading") return <Loading />;
   const handleShowMore = () => {
     setCharactersToShow((prev) => prev + 10);
   };
-  const isLastPage =
-    filteredCharacters && charactersToShow >= filteredCharacters.length;
-
   return (
     <Container>
       <CharacterList>
-        {filteredCharacters && filteredCharacters.length ? (
+        {filteredCharactersLength ? (
           filteredCharacters
             .slice(0, charactersToShow)
             .map((character) => (
@@ -31,6 +31,7 @@ export const Home = () => {
         onClick={handleShowMore}
         disabled={isLastPage}
         isLastPage={isLastPage}
+        charLength={filteredCharactersLength}
       >
         {!isLastPage ? "Exibir mais" : "Sem mais personagens"}
       </ShowMore>
