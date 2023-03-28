@@ -1,4 +1,5 @@
 import { CharacterProps } from "../../types";
+import { useCapitalizeWord, useConvertInchToCm } from "../../utils";
 import {
   Avatar,
   Box,
@@ -15,20 +16,7 @@ import {
 } from "./style";
 
 export const CharacterCard = (props: CharacterProps) => {
-  const { name, ancestry, alive, wand, house, image, species, gender, wizard } =
-    props;
-
-  const capitalize = (str: string) => {
-    return str.replace(/\b\w/g, (char) => char.toUpperCase());
-  };
-
-  const core = wand.core && capitalize(wand.core);
-
-  const convertInchToCm = (length: number | null) => {
-    const BASE_VALUE = 2.54;
-    const lenghCm = length && length * BASE_VALUE;
-    return lenghCm?.toFixed(2);
-  };
+  const { name, ancestry, wand, house, image, species, gender, wizard } = props;
 
   return (
     <Box house={house}>
@@ -58,7 +46,6 @@ export const CharacterCard = (props: CharacterProps) => {
       <Content>
         <CharInfoBox>
           <CharName>{name}</CharName>
-          {/* {species !== "human" && <h2>{species}</h2>} */}
           <CharHouseBadge house={house}>
             <span>{house ? house : "Não possui casa"}</span>
           </CharHouseBadge>
@@ -79,13 +66,18 @@ export const CharacterCard = (props: CharacterProps) => {
                       <span>{wand.wood ? wand.wood : "Não consta"}</span>
                     </WandInfoListItem>
                     <WandInfoListItem>
-                      Núcleo: <span>{wand.core ? core : "Não consta"}</span>
+                      Núcleo:{" "}
+                      <span>
+                        {wand.core
+                          ? useCapitalizeWord(wand?.core)
+                          : "Não consta"}
+                      </span>
                     </WandInfoListItem>
                     <WandInfoListItem>
                       Comprimento:{" "}
                       <span>
                         {wand.length
-                          ? convertInchToCm(wand.length) + "cm"
+                          ? useConvertInchToCm(wand.length) + "cm"
                           : "Não consta"}
                       </span>
                     </WandInfoListItem>
